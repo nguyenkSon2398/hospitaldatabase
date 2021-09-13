@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>firstaidicon.jpg</file>
+        <file>medical team.png</file>
+        <file>medicalBackground.jpg</file>
+    </qresource>
+</RCC>
