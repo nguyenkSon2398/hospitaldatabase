@@ -4,6 +4,8 @@
 #include "QtWidgets"
 #include <QMessageBox>
 #include <QString>
+#include "createacc.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -39,6 +41,12 @@ void MainWindow::on_pushButton_login_clicked()
     QSqlQuery query;
     query.exec("SELECT Username, LoginPass FROM doctor");
     QString db_username, db_password, loginUser, LoginPass;
+    while(query.next())
+    {
+        db_username = query.value(0).toString();
+        db_password = query.value(1).toString();
+
+    }
 
     loginUser= ui->lineEditUser->text();
     LoginPass = ui->lineEditPassword->text();
@@ -60,13 +68,7 @@ void MainWindow::on_pushButton_login_clicked()
 
 
     }
-    while(query.next())
-    {
-        db_username = query.value(0).toString();
-        db_password = query.value(1).toString();
-        qDebug()<<db_username<<db_password;
 
-    }
 
     if(db_username == loginUser && LoginPass==db_password)
     {
@@ -77,3 +79,19 @@ void MainWindow::on_pushButton_login_clicked()
         QMessageBox::information(0,"Login", "Unsucessful Login");
     }
 }
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_pushButton_createAcc_clicked()
+{
+   account = new CreateAcc(this);
+   account->show();
+}
+

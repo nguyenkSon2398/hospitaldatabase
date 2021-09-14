@@ -5,6 +5,7 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QMessageBox>
+#include "createacc.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,11 +21,11 @@ public:
 
 private slots:
 
-
-
     void on_pushButton_login_clicked();
+    void on_pushButton_createAcc_clicked();
 
 private:
     Ui::MainWindow *ui;
+    CreateAcc *account;
 };
 #endif // MAINWINDOW_H
