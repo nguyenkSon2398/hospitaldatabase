@@ -10,15 +10,18 @@ CONFIG += c++11
 
 SOURCES += \
     createacc.cpp \
+    dashboard.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     createacc.h \
+    dashboard.h \
     mainwindow.h
 
 FORMS += \
     createacc.ui \
+    dashboard.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -28,3 +31,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resource.qrc
+
+DISTFILES +=

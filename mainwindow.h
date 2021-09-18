@@ -6,6 +6,8 @@
 #include <QSqlDatabase>
 #include <QMessageBox>
 #include "createacc.h"
+#include "dashboard.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,5 +29,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     CreateAcc *account;
+    DashBoard *dashboard;
+
+
 };
 #endif // MAINWINDOW_H

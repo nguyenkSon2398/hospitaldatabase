@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
   <property name="styleSheet">
    <string notr="true">*
 {
@@ -20,7 +23,12 @@
 	font-size: 24px;
 }
 
+QComboBox
+{
+	font-size:17px;
+	text-align: left;
 
+}
 QGroupBox
 {
 	font-size: 15px;
@@ -471,22 +479,6 @@ QLineEdit
       <string>City</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditState">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>110</y>
-       <width>241</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="lblState">
      <property name="geometry">
       <rect>
@@ -529,22 +521,6 @@ QLineEdit
       <string>Zip Code</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditCountry">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>180</y>
-       <width>241</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="lblCountry">
      <property name="geometry">
       <rect>
@@ -556,6 +532,38 @@ QLineEdit
      </property>
      <property name="text">
       <string>Country</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbStatesName">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>110</y>
+       <width>241</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="insertPolicy">
+      <enum>QComboBox::InsertAfterCurrent</enum>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cbCountyNames">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>180</y>
+       <width>241</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="insertPolicy">
+      <enum>QComboBox::InsertAfterCurrent</enum>
      </property>
     </widget>
    </widget>

@@ -13,14 +13,15 @@ int main(int argc, char *argv[])
     db.setUserName("root");
     db.setPassword("");
     db.setDatabaseName("logindb");
-    if(db.open())
-    {
-        QMessageBox::information(0,"Connection","Database Connected");
-    }
-    else
-    {
-        QMessageBox::information(0,"Not Connected", "Database not connected");
-    }
+    db.open();
+    //if(db.open())
+    //{
+        //QMessageBox::information(0,"Connection","Database Connected");
+    //}
+    //else
+    //{
+        //QMessageBox::information(0,"Not Connected", "Database not connected");
+    //}
     return a.exec();
 
 }

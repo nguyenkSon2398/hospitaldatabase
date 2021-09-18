@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QString>
 #include "createacc.h"
+#include "dashboard.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -37,20 +38,14 @@ void MainWindow::on_pushButton_login_clicked()
 {
     int Key=3;
     int size;
+    bool CorrectLogin = false;
 
-    QSqlQuery query;
-    query.exec("SELECT Username, LoginPass FROM doctor");
     QString db_username, db_password, loginUser, LoginPass;
-    while(query.next())
-    {
-        db_username = query.value(0).toString();
-        db_password = query.value(1).toString();
-
-    }
 
     loginUser= ui->lineEditUser->text();
     LoginPass = ui->lineEditPassword->text();
     size = LoginPass.size();
+
     for(int k = 0; k < Key; k++)
     {
         //round 1: Hospital
@@ -67,17 +62,39 @@ void MainWindow::on_pushButton_login_clicked()
         qDebug()<<LoginPass;
 
 
+
+    }
+    QSqlQuery query;
+    query.exec("SELECT Username, LoginPass FROM doctor");
+    while(query.next())
+    {
+        db_username = query.value(0).toString();
+            db_password = query.value(1).toString();
+
+        if(db_username == loginUser && LoginPass==db_password)
+        {
+
+            QMessageBox::information(0,"Login", "Sucessful Login");
+            CorrectLogin = true;
+            hide();
+            dashboard = new DashBoard(this,db_username);
+            dashboard->show();
+
+
+        }
+
+    }
+    if(CorrectLogin == false)
+    {
+         QMessageBox::information(0,"Login", "Unsucessful Login");
     }
 
 
-    if(db_username == loginUser && LoginPass==db_password)
-    {
-        QMessageBox::information(0,"Login", "Sucessful Login");
-    }
-    else
-    {
-        QMessageBox::information(0,"Login", "Unsucessful Login");
-    }
+
+
+
+
+
 }
 
 

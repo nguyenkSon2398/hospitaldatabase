@@ -3,5 +3,8 @@
         <file>firstaidicon.jpg</file>
         <file>medical team.png</file>
         <file>medicalBackground.jpg</file>
+        <file>ListOfStates.txt</file>
+        <file>ListOfCountries.txt</file>
+        <file>doctorprofile.png</file>
     </qresource>
 </RCC>
