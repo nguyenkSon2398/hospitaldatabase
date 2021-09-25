@@ -18,11 +18,12 @@ public:
 
 private slots:
 
-
+    //void SetString();
     void on_pushButton_login_clicked();
 
 private:
     Ui::CreateAcc *ui;
+
 };
 
 #endif // CREATEACC_H

@@ -6,11 +6,16 @@
 #include <QTextStream>
 #include "QPixmap"
 
+
+
 CreateAcc::CreateAcc(QWidget *parent) :
     QDialog(parent),
+
     ui(new Ui::CreateAcc)
 {
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     ui->setupUi(this);
+
     QPixmap bkgnd(":/image/medicalBackground.jpg");
         bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatioByExpanding);
         QPalette palette;
@@ -77,21 +82,30 @@ bool isRepeat(QString LoginUser)
     }
     return repeat;
 }
+//void CreateAcc::SetString()
+//{
+
+   //loginUser = ui->LineEditUserName->text();
+
+//}
 void CreateAcc::on_pushButton_login_clicked()
 {
     int Key=3;
     int size;
     bool input=true;
-    bool repeat = true;
+    bool repeat = false;
     QSqlQuery query;
-    QString loginUser, LoginPass, FName, LName, Email,phoneNum, Street1, Street2, City, State,Country ;
+    QString loginUser,LoginPass, FName, LName, Email,phoneNum, Street1, Street2, City, State,Country ;
 
-    while(input!=false||repeat != true)
+    while(input!=false||repeat != false)
     {
 
 
         //grabs lineedit of username and store it login user
         loginUser= ui->LineEditUserName->text();
+
+        //connect(ui->LineEditUserName, SIGNAL(textEdited(const QString&)),ui->LineEditUserName,SLOT());
+
         //returns true if the string is empty, returns false if not empty
         input = isitEmpty(loginUser);
         qDebug()<<loginUser;
@@ -99,10 +113,7 @@ void CreateAcc::on_pushButton_login_clicked()
         {
             QMessageBox::information(0,"Missing","Please fill in the Username box");
         }
-        else
-        {
-           repeat = isRepeat(loginUser);
-        }
+
 
 
 

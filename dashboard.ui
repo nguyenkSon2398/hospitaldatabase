@@ -14,34 +14,60 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QDialog
+   <string notr="true">*
 {
-background-color:#EAEAEA;
+border-radius: 15px;
+}
+QDialog
+{
+background-color:#DAF6FF;
 
 }
 QFrame
 {
 background-color:white;
 }
+QToolButton
+{
+background:transparent;
+}
+QLabel
+{
+font-size:20px;
+border-width:20px;
+border-color: white;
+border-style:solid;
+
+
+}
+QLabel#lblWelcome
+{
+font-size:30px;
+font-weight:bold;
+border-style:none;
+}
+QLabel#lblHospital_name
+{
+
+	color:red;
+	font-weight: bold;
+	font-size:32px;
+	text-shadow:1px 1px;
+	border-style:none;
+}
+QPushButton
+{
+background-color:#F25959;
+}
 </string>
   </property>
-  <widget class="QCalendarWidget" name="calendarWidget">
-   <property name="geometry">
-    <rect>
-     <x>1430</x>
-     <y>695</y>
-     <width>411</width>
-     <height>261</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QFrame" name="frameProfile">
    <property name="geometry">
     <rect>
-     <x>1430</x>
-     <y>10</y>
-     <width>431</width>
-     <height>311</height>
+     <x>1330</x>
+     <y>20</y>
+     <width>511</width>
+     <height>261</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -53,27 +79,40 @@ background-color:white;
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>30</y>
-      <width>231</width>
-      <height>131</height>
+      <x>140</x>
+      <y>20</y>
+      <width>241</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="text">
      <string>...</string>
     </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/image/doctorprofile.png</normaloff>:/image/doctorprofile.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>800</width>
+      <height>800</height>
+     </size>
+    </property>
    </widget>
    <widget class="QLabel" name="lblWelcome">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>80</x>
       <y>200</y>
       <width>361</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>text</string>
+     <string>Welcome Text</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -81,9 +120,9 @@ background-color:white;
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>10</y>
-     <width>151</width>
-     <height>961</height>
+     <y>20</y>
+     <width>161</width>
+     <height>941</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -92,13 +131,52 @@ background-color:white;
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QPushButton" name="pushBtnAppointment">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Appointments</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushBtnPatients">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Patients</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushBtnProfile">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Profile</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>10</y>
-     <width>1221</width>
+     <x>210</x>
+     <y>20</y>
+     <width>1101</width>
      <height>131</height>
     </rect>
    </property>
@@ -108,14 +186,27 @@ background-color:white;
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>30</y>
+      <width>471</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Current view</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="frame_4">
    <property name="geometry">
     <rect>
-     <x>1430</x>
-     <y>340</y>
-     <width>431</width>
-     <height>321</height>
+     <x>1330</x>
+     <y>550</y>
+     <width>511</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -124,14 +215,60 @@ background-color:white;
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>511</width>
+      <height>137</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="lblTodayText">
+       <property name="text">
+        <string>Today's Date:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lblTimeTExt">
+       <property name="text">
+        <string>Current Time:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="lblTime">
+       <property name="text">
+        <string>Time</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="lblDate">
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QFrame" name="frame_5">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>150</y>
-     <width>1221</width>
-     <height>511</height>
+     <x>210</x>
+     <y>180</y>
+     <width>1101</width>
+     <height>781</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -139,15 +276,180 @@ background-color:white;
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>10</y>
+      <width>1081</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="GridMain">
+     <item row="0" column="1">
+      <widget class="QLabel" name="lblSund">
+       <property name="text">
+        <string>Sunday</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="lblTues">
+       <property name="text">
+        <string>Tuesday</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="lblMainEmpty">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lbl_9am">
+       <property name="text">
+        <string>9am-10am</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lbl_11am">
+       <property name="text">
+        <string>11am-12pm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lbl_8am">
+       <property name="text">
+        <string>8am-9am:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lbl_12pm">
+       <property name="text">
+        <string>12pm-1pm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7">
+      <widget class="QLabel" name="lblSatur">
+       <property name="text">
+        <string>Saturday</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="lbl_2pm">
+       <property name="text">
+        <string>2pm-3pm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="lbl_1pm">
+       <property name="text">
+        <string>1pm-2pm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="lbl_3pm">
+       <property name="text">
+        <string>3pm-4pm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="lblMon">
+       <property name="text">
+        <string>Monday</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="lblWedn">
+       <property name="text">
+        <string>Wednesday</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="lblFri">
+       <property name="text">
+        <string>Friday</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lbl_10am">
+       <property name="text">
+        <string>10am-11am</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="lbl_4pm">
+       <property name="text">
+        <string>4pm-5pm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLabel" name="lblThrus">
+       <property name="text">
+        <string>Thursday</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QCalendarWidget" name="calendarWidget">
+   <property name="geometry">
+    <rect>
+     <x>1331</x>
+     <y>680</y>
+     <width>511</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::NoContextMenu</enum>
+   </property>
+   <property name="gridVisible">
+    <bool>false</bool>
+   </property>
+   <property name="verticalHeaderFormat">
+    <enum>QCalendarWidget::NoVerticalHeader</enum>
+   </property>
+   <property name="dateEditEnabled">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QFrame" name="frame_6">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>680</y>
-     <width>1221</width>
-     <height>291</height>
+     <x>1330</x>
+     <y>300</y>
+     <width>511</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -156,8 +458,65 @@ background-color:white;
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QToolButton" name="toolButton_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>91</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/image/firstaidicon.jpg</normaloff>:/image/firstaidicon.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>400</width>
+      <height>400</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblHospital_name">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>291</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>First Aid Hospital</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="lblQuote">
+   <property name="geometry">
+    <rect>
+     <x>1330</x>
+     <y>430</y>
+     <width>511</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Where we treat everyone's health as family.</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
