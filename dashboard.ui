@@ -171,35 +171,6 @@ background-color:#F25959;
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_3">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>20</y>
-     <width>1101</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>30</y>
-      <width>471</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Current view</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QFrame" name="frame_4">
    <property name="geometry">
     <rect>
@@ -266,9 +237,9 @@ background-color:#F25959;
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>180</y>
+     <y>20</y>
      <width>1101</width>
-     <height>781</height>
+     <height>941</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -282,8 +253,8 @@ background-color:#F25959;
      <rect>
       <x>7</x>
       <y>10</y>
-      <width>1081</width>
-      <height>761</height>
+      <width>1085</width>
+      <height>921</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="GridMain">

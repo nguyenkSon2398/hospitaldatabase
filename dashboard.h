@@ -2,7 +2,7 @@
 #define DASHBOARD_H
 
 #include <QDialog>
-
+#include <QTimer>
 namespace Ui {
 class DashBoard;
 }
@@ -20,6 +20,7 @@ private:
     Ui::DashBoard *ui;
     QString userName;
     QString userPass;
+    QTimer *timer;
 };
 
 #endif // DASHBOARD_H

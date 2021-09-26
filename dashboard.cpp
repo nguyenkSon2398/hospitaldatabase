@@ -8,6 +8,7 @@
 #include<QGridLayout>
 #include <iostream>
 #include <QVariant>
+#include "Methods.cpp"
 DashBoard::DashBoard(QWidget *parent, QString LoginUser) :
     QDialog(parent),
 
@@ -16,6 +17,8 @@ DashBoard::DashBoard(QWidget *parent, QString LoginUser) :
 
     ui->setupUi(this);
 
+    QString namePatient;
+
     QSqlQuery query;
 
 
@@ -23,7 +26,7 @@ DashBoard::DashBoard(QWidget *parent, QString LoginUser) :
     qint16 row =1;
     QString AppointmentTime;
     QString AppointmentDate;
-    QDateTime Atime;
+
 
     QDate d = QDate::currentDate();
     QString Format = "yyyy-dd-MM";
@@ -71,132 +74,38 @@ DashBoard::DashBoard(QWidget *parent, QString LoginUser) :
 
 
 
-    //how to insert appoinment in grid.
-    //row elements is time of day
-    // colounm elements is the date
-    //insert date and time to database-solved using the addTime function SQL
 
-    // if we extract the time and day from the database-solved
-    query.exec("SELECT TIME(Appointments) FROM patients");
 
-    while(query.next())
+    QSqlQueryModel model;
+
+    model.setQuery("SELECT * FROM patients");
+    for(int i = 0; i < model.rowCount(); i++)
     {
-       AppointmentTime = query.value(0).toString();
+     //get the appointment date and time and store in variable
+     AppointmentDate = model.record(i).value("Appointments").toDate().toString("yyyy-MM-dd");
+     AppointmentTime = model.record(i).value("Appointments").toTime().toString();
+     qDebug()<<AppointmentDate<<AppointmentTime;
+     //function call to get the number of dates and time ahead of the current date
+     coloumn = AppointDate(d,AppointmentDate);
+     row = AppointTime(t,AppointmentTime);
+     namePatient = model.record(i).value("FirstName").toString()+" "+ model.record(i).value("LastName").toString();
 
+     //add entry label to the grid
+     QLabel *l = new QLabel(namePatient);
+     l->setStyleSheet("QLabel{background-color:red}");
+     QGridLayout *g = ui->GridMain;
+     g->addWidget(l,row,coloumn,Qt::Alignment());
     }
-    qDebug()<<AppointmentTime;
-    query.exec("SELECT CAST(Appointments As date) FROM patients");
-    while(query.next())
-    {
-        AppointmentDate = query.value(0).toString();
-
-    }
-    qDebug()<<AppointmentDate;
-    qDebug()<<d.addDays(0).toString("yyyy-MM-dd");
-
-    //how do we insert the element at the specfic cell-solved
-    //below code works
-    //QLabel *l = new QLabel("Test");
-    //l->setStyleSheet("QLabel{background-color:red}");
-    //QGridLayout *g = ui->GridMain;
-    //g->addWidget(l,4,5,Qt::Alignment());
-
     // insert the element at specfic time and day from database
-    if(d.addDays(0).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-
-    }
-    else if(d.addDays(1).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-        coloumn +=1;
-    }
-    else if(d.addDays(2).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-        coloumn +=2;
-    }
-    else if(d.addDays(3).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-        coloumn +=3;
-    }
-    else if(d.addDays(4).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-        coloumn +=4;
-    }
-    else if(d.addDays(5).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-        coloumn +=5;
-    }
-    else if(d.addDays(6).toString("yyyy-MM-dd")==AppointmentDate)
-    {
-        qDebug()<<true;
-        coloumn +=6;
-
-    }
-
-    if(AppointmentTime == "08:00:00")
-    {
-        //do nothing
-        row=1;
-    }
-    else if(AppointmentTime =="09:00:00")
-    {
-        row +=2;
-
-    }
-
-    else if(AppointmentTime =="10:00:00")
-    {
-        row +=3;
-
-    }
-    else if(AppointmentTime =="11:00:00")
-    {
-        row +=4;
-
-    }
-    else if(AppointmentTime =="12:00:00")
-    {
-        row +=5;
-
-    }
-    else if(AppointmentTime =="13:00:00")
-    {
-        row +=6;
-
-    }
-    else if(AppointmentTime =="14:00:00")
-    {
-        row +=7;
-
-    }
-
-    else if(AppointmentTime =="15:00:00")
-    {
-        row +=8;
-
-    }
-    else if(AppointmentTime =="16:00:00")
-    {
-        row +=9;
-
-    }
-    else if(AppointmentTime =="17:00:00")
-    {
-        row +=9;
-
-    }
 
 
-    QLabel *l = new QLabel("Test");
-    l->setStyleSheet("QLabel{background-color:red}");
-    QGridLayout *g = ui->GridMain;
-    g->addWidget(l,row,coloumn,Qt::Alignment());
+
+
+
+
+
+
+
 
 
     //possible soluions
