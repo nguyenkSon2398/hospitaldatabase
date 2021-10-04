@@ -14,7 +14,20 @@ class DashBoard : public QDialog
 public:
     explicit DashBoard(QWidget *parent = nullptr,QString LoginUser="");
 
+
+
     ~DashBoard();
+public slots:
+    void updateTime();
+    void getPatientInfo(QString Fname, QString Lname, QString Date, QString Time);
+
+
+
+
+
+private slots:
+    void on_pushBtnPatients_clicked();
+    void on_pushBtnAppointment_clicked();
 
 private:
     Ui::DashBoard *ui;

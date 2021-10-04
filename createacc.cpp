@@ -135,6 +135,7 @@ void CreateAcc::on_pushButton_login_clicked()
     input= true;
     while(input!=false)
     {
+
         FName = ui->lineEditFirstName->text();
         input=isitEmpty(FName);
         if(input == true)

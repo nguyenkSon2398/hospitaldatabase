@@ -3,8 +3,9 @@
 #include <QTime>
 #include <QDebug>
 
-int AppointDate(QDate d, QString AppointmentDate)
+int AppointDate(QString AppointmentDate)
 {
+    QDate d = QDate::currentDate();
     int coloumn =1;
     if(d.addDays(0).toString("yyyy-MM-dd")==AppointmentDate)
     {
@@ -45,7 +46,7 @@ int AppointDate(QDate d, QString AppointmentDate)
     return coloumn;
 }
 
-int AppointTime(QTime t,QString AppointmentTime)
+int AppointTime(QString AppointmentTime)
 {
     int row = 1;
     if(AppointmentTime == "08:00:00")
